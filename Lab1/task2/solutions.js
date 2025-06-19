@@ -18,11 +18,7 @@ function changeContent(className) {
 
 document.querySelector('#new-reservation').addEventListener('click', (e) => cleanData(e));
 
-function cleanData(e) {
-    changeContent('search-form-content');
-}
-
-changeContent('search-form-content');
+//changeContent('search-form-content');
 document.querySelector('#search-form-button').addEventListener('click', (e) => searchFormData(e));
 
 function searchFormData(e) {
@@ -45,7 +41,7 @@ document.querySelector('#search-back-btn').addEventListener('click', (e) => fill
 
 function fillSearchForm(e) {
     e.preventDefault();
-    changeContent('search-form-content');
+    //changeContent('search-form-content');
     document.querySelector('#check-in').value = reservation.startDate;
     document.querySelector('#check-out').value = reservation.endDate;
     document.querySelector('#people').value = reservation.guestsCount;
@@ -102,7 +98,7 @@ function getPersonalData(e) {
         reservation.phone = phone;
         reservation.email = email;
         console.log(reservation);
-        changeContent('confirm-reservation-content');
+        //changeContent('confirm-reservation-content');
         fillConfirmReservationData(reservation);
     }
 }
@@ -116,3 +112,22 @@ function fillConfirmReservationData(customReservation) {
     document.querySelector('.confirm-reservation #guest-data-out').textContent = `Date-out: ${customReservation.endDate}`;
 }
 
+document.querySelector('#confirm-back-btn').addEventListener('click', (e) => getBackToPersonalData(e));
+
+function getBackToPersonalData(e) {
+    e.preventDefault();
+    changeContent('guest-details-form-content');
+}
+
+
+document.querySelector('#confirm-reservation').addEventListener('click', (e) => showThanksPage(e));
+
+function showThanksPage(e) {
+    e.preventDefault();
+    changeContent('thank-you-content');
+}
+
+
+function cleanData(e) {
+    changeContent('search-form-content');
+}
