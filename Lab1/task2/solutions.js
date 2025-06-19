@@ -18,6 +18,10 @@ function changeContent(className) {
 
 document.querySelector('#new-reservation').addEventListener('click', (e) => cleanData(e));
 
+function cleanData(e) {
+    changeContent('search-form-content');
+}
+
 //changeContent('search-form-content');
 document.querySelector('#search-form-button').addEventListener('click', (e) => searchFormData(e));
 
@@ -128,6 +132,4 @@ function showThanksPage(e) {
 }
 
 
-function cleanData(e) {
-    changeContent('search-form-content');
-}
+
